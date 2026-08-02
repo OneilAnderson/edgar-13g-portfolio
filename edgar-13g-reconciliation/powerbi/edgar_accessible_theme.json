@@ -1,0 +1,13 @@
+{
+  "name": "EDGAR Reconciliation — Accessible",
+  "dataColors": ["#1A5276", "#B34700", "#0F6E5C", "#7B3294", "#8A5A00", "#595959"],
+  "background": "#FFFFFF",
+  "foreground": "#1C1C1C",
+  "tableAccent": "#1A5276",
+  "textClasses": {
+    "label": { "color": "#404040", "fontSize": 10 },
+    "callout": { "color": "#1C1C1C", "fontSize": 24 },
+    "title": { "color": "#1C1C1C", "fontSize": 13 },
+    "header": { "color": "#1C1C1C", "fontSize": 11 }
+  }
+}

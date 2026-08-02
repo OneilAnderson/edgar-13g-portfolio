@@ -1,0 +1,36 @@
+---
+title: ""
+---
+
+::: {.hero style="padding: 3rem 0 1rem 0;"}
+
+# Oneil Anderson
+
+### Data Analyst — Compliance Analytics, Financial Crimes, R + Power BI
+
+I build data pipelines and reporting infrastructure for regulatory
+compliance: SQL/Snowflake data models, Power BI dashboards, Power Automate
+workflows, and R-based analysis, with a focus on beneficial ownership
+disclosure, AML/transaction monitoring, and audit-ready reconciliation
+logic.
+
+Every project on this site is built on public or synthetic data —
+nothing here reflects any employer's internal systems, data, or policies.
+See [About](about.qmd) for more on that boundary.
+
+[View Projects →](projects.qmd){.btn .btn-primary role="button"}
+
+:::
+
+## Core stack
+
+::: {.grid}
+::: {.g-col-6}
+**Analytics & Data**
+SQL (advanced) · Snowflake · Python · R
+:::
+::: {.g-col-6}
+**Reporting & Automation**
+Power BI (enterprise) · Power Automate · R Shiny
+:::
+:::

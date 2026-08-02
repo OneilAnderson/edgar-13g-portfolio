@@ -1,0 +1,92 @@
+# Deadline rules by filer type, post-September 30, 2024 amendments.
+#
+# Verified against the e-CFR text of 17 CFR 240.13d-1 and 240.13d-2 as
+# amended through Feb 2025 (90 FR 9689). Citations on each rule below.
+#
+# Notes:
+# - "business day" is defined in Rule 13d-1(i)(2): any day other than
+#   Saturday, Sunday, or a U.S. federal holiday. The reconciliation script
+#   implements this with an explicit federal holiday calendar.
+# - The Feb 11, 2025 C&DIs (Q&A 103.11/103.12) change *eligibility* to file
+#   on Schedule 13G (what counts as "influencing control"), not any
+#   day-count in this file.
+# - Filer category comes from the structured XML cover page, which states
+#   the rule relied on: "Rule 13d-1(b)" = qualified institutional investor,
+#   "Rule 13d-1(c)" = passive investor, "Rule 13d-1(d)" = exempt investor.
+#
+# units:
+#   business_days                     — N business days after the event date
+#   calendar_days_after_quarter_end   — N calendar days after the end of the
+#                                       calendar quarter containing the event date
+#   business_days_after_month_end     — N business days after the end of the
+#                                       calendar month containing the event date
+
+initial_filing:
+  qualified_institutional_investor:
+    # Rule 13d-1(b)(2): >5% as of quarter-end -> 45 days after quarter end.
+    trigger: "exceeds 5% as of calendar quarter end"
+    deadline: 45
+    unit: "calendar_days_after_quarter_end"
+    # Rule 13d-1(b)(2) proviso: >10% before quarter-end -> 5 business days
+    # after the end of the first month in which ownership (computed as of
+    # month-end) exceeds 10%.
+    accelerated_trigger: "exceeds 10% before quarter end (computed as of month end)"
+    accelerated_deadline: 5
+    accelerated_unit: "business_days_after_month_end"
+
+  exempt_investor:
+    # Rule 13d-1(d): 45 days after the end of the quarter in which the
+    # person became obligated to report.
+    trigger: "exceeds 5% as of calendar quarter end"
+    deadline: 45
+    unit: "calendar_days_after_quarter_end"
+
+  passive_investor:
+    # Rule 13d-1(c): 5 business days after the acquisition (>5%, and only
+    # available while beneficial ownership stays below 20%).
+    trigger: "exceeds 5% at any time (eligibility ends at 20%)"
+    deadline: 5
+    unit: "business_days"
+
+  schedule_13d_filer:
+    # Rule 13d-1(a): 5 business days after acquiring >5%.
+    trigger: "exceeds 5%"
+    deadline: 5
+    unit: "business_days"
+
+amendments:
+  qualified_institutional_investor:
+    # Rule 13d-2(b): material change as of quarter-end -> amend within
+    # 45 days after that quarter end.
+    material_change_deadline: 45
+    unit: "calendar_days_after_quarter_end"
+    # Rule 13d-2(c): upon first exceeding 10% (computed as of month-end),
+    # and thereafter upon any +/-5% change (computed as of month-end) ->
+    # 5 business days after that month end.
+    accelerated_trigger: "crosses 10%, or +/-5% change thereafter (computed as of month end)"
+    accelerated_deadline: 5
+    accelerated_unit: "business_days_after_month_end"
+
+  exempt_investor:
+    # Rule 13d-2(b) applies to 13d-1(d) filers as well.
+    material_change_deadline: 45
+    unit: "calendar_days_after_quarter_end"
+
+  passive_investor:
+    # Rule 13d-2(b): the quarterly 45-day rule is the baseline for passive
+    # filers too.
+    material_change_deadline: 45
+    unit: "calendar_days_after_quarter_end"
+    # Rule 13d-2(d): upon acquiring >10%, and thereafter upon any +/-5%
+    # change -> 2 business days. (Event-driven; see reconciliation notes on
+    # why a single filing can't always reveal which trigger applied.)
+    accelerated_trigger: "crosses 10%, or +/-5% change thereafter"
+    accelerated_deadline: 2
+    accelerated_unit: "business_days"
+
+  schedule_13d_filer:
+    # Rule 13d-2(a): 2 business days after any material change; +/-1% is
+    # deemed material per the rule text.
+    material_change_threshold_pct: 1
+    material_change_deadline: 2
+    unit: "business_days"

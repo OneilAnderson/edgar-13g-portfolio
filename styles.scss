@@ -1,0 +1,59 @@
+/*-- scss:defaults --*/
+// Accessible palette: verify contrast ratios at least 4.5:1 for body text
+// (WCAG AA) if you change these -- cosmo's defaults already pass, most
+// customizations break it without checking.
+$primary: #1a5276;
+$body-bg: #ffffff;
+$body-color: #1c1c1c;
+$link-color: $primary;
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-family-monospace: "JetBrains Mono", "Fira Code", monospace;
+
+$h1-font-size: 2.1rem;
+$h2-font-size: 1.6rem;
+$h3-font-size: 1.25rem;
+
+/*-- scss:rules --*/
+.navbar {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+// Keep focus outlines visible -- never remove these for keyboard nav.
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #1a5276;
+  outline-offset: 2px;
+}
+
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.15s ease;
+}
+
+.project-card:hover, .project-card:focus-within {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: #eaf1f6;
+  color: $primary;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.dashboard-embed-note {
+  border: 1px dashed #767676;
+  padding: 2rem;
+  text-align: center;
+  color: #444444;
+  border-radius: 6px;
+}

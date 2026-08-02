@@ -1,0 +1,38 @@
+---
+title: "About"
+---
+
+## Background
+
+I'm a Senior Data Analyst in Compliance at an asset management firm, where
+I build SQL pipelines, Snowflake data models, Power BI dashboards, and
+Power Automate workflows supporting compliance monitoring across a global
+business. I'm also completing an M.S. in Analytics at Georgia Tech
+(expected 2027).
+
+My interest sits at the intersection of regulatory/compliance domain
+knowledge and data engineering — building systems that turn regulatory
+requirements into auditable, reconciled data pipelines.
+
+## A note on the projects on this site
+
+I can't share anything from my actual compliance work here — no firm data,
+internal dashboards, policies, or workflow logic, even redacted or
+genericized. Screenshots and "sanitized" exports of real systems can leak
+more than they intend to (metadata, layout, thresholds), so instead every
+project here is rebuilt from the ground up on data I'm free to use:
+
+- **Public sources** — SEC EDGAR, and similar public regulatory filing
+  systems
+- **Synthetic datasets** — purpose-built or published synthetic data (e.g.
+  synthetic AML transaction sets) where a public real-world source doesn't
+  exist
+
+The point isn't just legal safety — it's that rebuilding a workflow from
+scratch on public data is a more honest demonstration of whether I actually
+understand the underlying problem, rather than just knowing how to operate
+one employer's specific system.
+
+## Get in touch
+
+[GitHub](https://github.com/OneilAnderson)

@@ -1,0 +1,31 @@
+---
+title: "Projects"
+---
+
+Each project below is built end to end on public or synthetic data. No
+employer data, internal dashboards, or non-public policies appear anywhere
+on this site — see [About](about.qmd) for why, and how each project stays
+inside that boundary.
+
+::: {.project-card}
+### [Schedule 13G/13D Beneficial Ownership Reconciliation](projects/13g-reconciliation.qmd)
+
+<span class="project-tag">R</span><span class="project-tag">SEC EDGAR API</span><span class="project-tag">Power BI</span><span class="project-tag">Regulatory Logic</span>
+
+An end-to-end pipeline against SEC EDGAR's public filings API: fetches
+Schedule 13D/13G filings, parses the structured XML cover pages introduced
+by the December 2024 mandate, applies filing-deadline logic by filer type,
+and exports a reconciled dataset to Power BI.
+
+[Read the case study →](projects/13g-reconciliation.qmd)
+:::
+
+::: {.project-card}
+### More projects coming soon
+
+<span class="project-tag">Power Automate</span><span class="project-tag">R Shiny</span>
+
+Additional pieces in progress: a generic compliance-workflow automation
+built on synthetic data, and an AML transaction-monitoring dashboard using
+a public synthetic AML dataset.
+:::

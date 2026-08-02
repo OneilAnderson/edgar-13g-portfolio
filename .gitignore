@@ -1,8 +1,17 @@
-data/
-config/settings.yml
+# Pipeline outputs and local config (contains real name/email) — never committed.
+edgar-13g-reconciliation/data/
+edgar-13g-reconciliation/config/settings.yml
+
+# R
 .Rhistory
 .RData
 .Rproj.user/
+
+# Quarto (docs/ itself IS committed — GitHub Pages serves it)
 .quarto/
+/_freeze/
 docs/.quarto/
+site_libs/.quarto/
+
+# macOS
 .DS_Store

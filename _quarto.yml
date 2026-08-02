@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!edgar-13g-reconciliation/"
+
+website:
+  title: "Oneil Anderson"
+  description: "Data analytics, compliance systems, and R + Power BI work"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/OneilAnderson
+        aria-label: "GitHub profile"
+  page-footer:
+    center: "Built with Quarto + R. Source on [GitHub](https://github.com/OneilAnderson/edgar-13g-portfolio)."
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: false
+    page-layout: full
+    grid:
+      body-width: 900px
+    mainfont: "Inter"
+    fontsize: 1.05rem
+    linkcolor: "#1a5276"
+
+execute:
+  freeze: auto

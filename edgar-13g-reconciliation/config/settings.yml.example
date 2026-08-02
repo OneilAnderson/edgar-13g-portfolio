@@ -1,0 +1,24 @@
+# Copy this file to config/settings.yml and fill in your details.
+# config/settings.yml is gitignored so your name/email never reach the repo.
+
+# SEC requires a descriptive User-Agent on every request: "Name email@domain.com"
+# Requests without one, or with a generic UA, get throttled or blocked.
+user_agent: "Your Name your.email@example.com"
+
+# EDGAR allows up to 10 req/sec across all endpoints. Stay well under it.
+requests_per_second: 5
+
+# Date window for the pull (filed_date, inclusive). Start narrow.
+start_date: "2026-07-14"
+end_date: "2026-07-31"
+
+# Root form types. Full-text search matches on root_forms, so "SCHEDULE 13G"
+# automatically includes "SCHEDULE 13G/A". XML-era form types only
+# (post Dec 18, 2024).
+form_types:
+  - "SCHEDULE 13G"
+  - "SCHEDULE 13D"
+
+# Days per query chunk (keeps each query under the API's 10,000-hit
+# pagination cap).
+chunk_days: 7
