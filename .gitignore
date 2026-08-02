@@ -1,0 +1,8 @@
+data/
+config/settings.yml
+.Rhistory
+.RData
+.Rproj.user/
+.quarto/
+docs/.quarto/
+.DS_Store
