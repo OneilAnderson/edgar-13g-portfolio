@@ -1,0 +1,21 @@
+# SEC requires a descriptive User-Agent on every request: "Name email@domain.com"
+# Requests without one, or with a generic UA, get throttled or blocked.
+user_agent: "On [Your Last Name] your.email@example.com"
+
+# EDGAR allows up to 10 req/sec across all endpoints. Keep this under that
+# even during testing -- getting IP-blocked mid-demo is not a good look.
+requests_per_second: 5
+
+# Date window for the initial pull. Keep this narrow while developing --
+# full-text search returns up to 100 results per call, and you'll want to
+# page through date ranges once the pipeline is working end to end.
+start_date: "2025-01-01"
+end_date: "2025-06-30"
+
+# Form types to pull. Note the XML-era form types are "SCHEDULE 13G" /
+# "SCHEDULE 13G/A" / "SCHEDULE 13D" -- distinct from the pre-Dec-2024
+# "SC 13G" / "SC 13D" free-text form types, which this pipeline does not parse.
+form_types:
+  - "SCHEDULE 13G"
+  - "SCHEDULE 13G/A"
+  - "SCHEDULE 13D"

@@ -1,0 +1,53 @@
+# Deadline rules by filer type, post-September 30, 2024 amendments.
+#
+# *** VERIFY THESE AGAINST 17 CFR 240.13d-1 / 13d-2 AND THE FEB 2025 SEC
+# C&DI GUIDANCE BEFORE TREATING AS AUTHORITATIVE. ***
+#
+# These are pulled into config on purpose so the reconciliation logic
+# (03_reconcile_deadlines.R) never hardcodes a day-count. Update the values
+# here and the pipeline re-flags everything downstream automatically --
+# useful if the SEC revises timing again, and useful for sanity-checking
+# your own understanding of the rule against what the code assumes.
+#
+# unit: "business_days" or "calendar_days_after_quarter_end"
+
+initial_filing:
+  qualified_institutional_investor:
+    trigger: "exceeds 5% as of quarter end"
+    deadline: 45
+    unit: "calendar_days_after_quarter_end"
+    accelerated_trigger: "exceeds 10% before quarter end"
+    accelerated_deadline: 5
+    accelerated_unit: "business_days_after_month_end"
+
+  exempt_investor:
+    trigger: "exceeds 5% as of quarter end"
+    deadline: 45
+    unit: "calendar_days_after_quarter_end"
+
+  passive_investor:
+    trigger: "exceeds 5% at any time"
+    deadline: 5
+    unit: "business_days"
+
+  schedule_13d_filer:
+    trigger: "exceeds 5% with control intent"
+    deadline: 5
+    unit: "business_days"
+
+amendments:
+  qualified_institutional_investor:
+    material_change_deadline: 45
+    unit: "calendar_days_after_quarter_end"
+    accelerated_trigger: "exceeds 10% before quarter end"
+    accelerated_deadline: 5
+    accelerated_unit: "business_days_after_month_end"
+
+  passive_investor:
+    material_change_threshold_pct: 1
+    material_change_deadline: 2
+    unit: "business_days"
+
+  schedule_13d_filer:
+    material_change_deadline: 2
+    unit: "business_days"
